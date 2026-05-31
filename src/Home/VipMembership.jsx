@@ -17,17 +17,16 @@ export default function VIPMembership() {
   ];
 
   return (
-    <section className="bg-stone-50 py-16 lg:py-24 px-5 lg:px-6">
+    <section className="overflow-x-hidden bg-stone-50 py-16 lg:py-24 px-5 lg:px-6">
       <div className="mx-auto max-w-7xl">
-
         <div className="grid items-center gap-12 lg:gap-16 lg:grid-cols-2">
-
           {/* Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            className="min-w-0"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-xs sm:text-sm font-medium text-amber-700">
               <FaCrown />
@@ -67,7 +66,6 @@ export default function VIPMembership() {
 
             <button className="group mt-8 flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-zinc-900 px-8 py-4 font-semibold text-white transition hover:bg-black">
               Become a Member
-
               <FaArrowRight className="transition group-hover:translate-x-1" />
             </button>
           </motion.div>
@@ -78,11 +76,10 @@ export default function VIPMembership() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="relative min-w-0 overflow-hidden"
           >
             {/* Main Card */}
-            <div className="overflow-hidden rounded-[28px] lg:rounded-[40px] bg-zinc-900 p-6 sm:p-8 lg:p-10 text-white shadow-[0_30px_80px_rgba(0,0,0,0.15)]">
-
+            <div className="w-full overflow-hidden rounded-[28px] lg:rounded-[40px] bg-zinc-900 p-6 sm:p-8 lg:p-10 text-white shadow-[0_30px_80px_rgba(0,0,0,0.15)]">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-zinc-400">
@@ -143,7 +140,7 @@ export default function VIPMembership() {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute left-2 top-4 sm:left-4 sm:top-8 rounded-2xl bg-white p-3 sm:p-4 shadow-xl">
+            <div className="absolute left-3 top-3 sm:left-6 sm:top-6 rounded-2xl bg-white p-3 sm:p-4 shadow-xl">
               <div className="flex items-center gap-2">
                 <FaStar className="text-amber-500" />
 
@@ -160,7 +157,7 @@ export default function VIPMembership() {
             </div>
 
             {/* Floating Stat */}
-            <div className="absolute bottom-4 right-2 sm:right-4 rounded-2xl bg-white p-3 sm:p-4 shadow-xl">
+            <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 rounded-2xl bg-white p-3 sm:p-4 shadow-xl">
               <h4 className="text-lg sm:text-2xl font-black text-zinc-900">
                 2,500+
               </h4>
@@ -169,7 +166,6 @@ export default function VIPMembership() {
                 Active Members
               </p>
             </div>
-
           </motion.div>
         </div>
       </div>
