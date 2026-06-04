@@ -42,6 +42,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl  text-white">
               <img
+              loading="lazy"
       src={logo}
       alt="Logo"
       className="h-full w-full object-cover"

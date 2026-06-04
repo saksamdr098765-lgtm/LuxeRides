@@ -6,7 +6,7 @@ const testimonials = [
     id: 1,
     name: "Rahul Sharma",
     role: "Business Consultant",
-    image: "https://i.pravatar.cc/150?img=68",
+    image: "/testimonials/first.webp",
     review:
       "The experience was exceptional from start to finish. The Mercedes S-Class arrived in pristine condition, and the chauffeur was highly professional. LuxeDrives truly delivers a premium experience.",
   },
@@ -14,7 +14,7 @@ const testimonials = [
     id: 2,
     name: "Priya Mehta",
     role: "Travel Content Creator",
-    image: "https://i.pravatar.cc/150?img=47",
+    image: "/testimonials/second.webp",
     review:
       "Booking was seamless and the Range Rover Sport was absolutely stunning. From comfort to service quality, everything exceeded my expectations.",
   },
@@ -22,7 +22,7 @@ const testimonials = [
     id: 3,
     name: "Arjun Kapoor",
     role: "Entrepreneur",
-    image: "https://i.pravatar.cc/150?img=13",
+    image: "/testimonials/third.webp",
     review:
       "I've rented luxury vehicles across several cities, but LuxeDrives stands apart. Their fleet quality, punctuality, and customer support are truly outstanding.",
   },
@@ -108,6 +108,7 @@ export default function Testimonials() {
               {/* User */}
               <div className="mt-8 flex items-center gap-4 border-t border-zinc-200 pt-6">
                 <img
+                 loading="lazy"
                   src={item.image}
                   alt={item.name}
                   className="h-14 w-14 rounded-full object-cover"

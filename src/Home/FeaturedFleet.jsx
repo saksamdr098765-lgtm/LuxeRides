@@ -21,14 +21,14 @@ const cars = [
     name: "Swift Manual",
     category: "Hatchback",
     price: "₹1800",
-    image: "/fleet/swift.jpg",
+    image: "/fleet/swift.webp",
   },
   {
     id: 3,
     name: "Scorpio S11",
     category: "SUV",
     price: "₹3500",
-    image: "/fleet/scorpios11.avif",
+    image: "/fleet/scorpios11.webp",
   },
 ];
 
@@ -76,6 +76,7 @@ export default function FeaturedFleet() {
     >
       {/* Image */}
       <img
+      loading="lazy"
         src={car.image}
         alt={car.name}
         className="h-[500px] w-full object-cover"

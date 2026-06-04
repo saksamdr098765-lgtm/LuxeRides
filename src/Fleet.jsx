@@ -23,21 +23,21 @@ const cars = [
     name: "Swift Manual",
     category: "Hatchback",
     price: "₹1800",
-    image: "/fleet/swift.jpg",
+    image: "/fleet/swift.webp",
   },
   {
     id: 3,
     name: "Scorpio S11",
     category: "SUV",
     price: "₹3500",
-    image: "/fleet/scorpios11.avif",
+    image: "/fleet/scorpios11.webp",
   },
   {
     id: 4,
     name: "Scorpio N",
     category: "Premium SUV",
     price: "₹4000",
-    image: "/fleet/scropion.jpeg",
+    image: "/fleet/scropion.webp",
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const cars = [
     name: "Audi A4",
     category: "Luxury Sedan",
     price: "₹7000",
-    image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=1200",
+    image: "/fleet/audia4.webp",
   },
   {
     id: 7,
@@ -65,14 +65,14 @@ const cars = [
     name: "Thar 4x2 Manual",
     category: "Off-Road SUV",
     price: "₹4000",
-    image: "/fleet/thar42.jpg",
+    image: "/fleet/thar42.webp",
   },
   {
     id: 9,
     name: "Fortuner",
     category: "Premium SUV",
     price: "₹6500",
-    image: "/fleet/fortuner.jpg",
+    image: "/fleet/fortuner.webp",
   },
 ];
 
@@ -84,8 +84,9 @@ export default function Fleet() {
       <section className="relative overflow-hidden bg-zinc-950 py-32 text-white">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000"
-            alt=""
+           loading="lazy"
+            src="/contact.webp"
+            alt="Luxury Car"
             className="h-full w-full object-cover"
           />
         </div>
@@ -154,6 +155,7 @@ export default function Fleet() {
               >
                 <div className="overflow-hidden">
                   <img
+                   loading="lazy"
                     src={car.image}
                     alt={car.name}
                     className="h-72 w-full object-cover transition duration-700 group-hover:scale-110"

@@ -144,7 +144,8 @@ Sent from LuxeDrives Website
       <section className="relative overflow-hidden bg-zinc-950 py-28">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000"
+           loading="lazy"
+            src="/contact.webp"
             alt="Luxury Car"
             className="h-full w-full object-cover"
           />

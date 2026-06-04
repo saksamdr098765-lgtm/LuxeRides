@@ -48,8 +48,9 @@ export default function About() {
       <section className="relative overflow-hidden bg-zinc-950 py-32">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000"
-            alt=""
+           loading="lazy"
+            src="/about.webp"
+            alt="car"
             className="h-full w-full object-cover"
           />
         </div>
@@ -107,8 +108,9 @@ export default function About() {
             viewport={{ once: true }}
           >
             <img
-              src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400"
-              alt=""
+             loading="lazy"
+              src="/about2.webp"
+              alt="car"
               className="rounded-[32px] shadow-xl"
             />
           </motion.div>
@@ -174,8 +176,9 @@ export default function About() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
 
             <img
-              src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1400"
-              alt=""
+             loading="lazy"
+              src="/about3.webp"
+              alt="car"
               className="rounded-[32px]"
             />
 

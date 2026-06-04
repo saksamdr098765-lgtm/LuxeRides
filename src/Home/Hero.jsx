@@ -34,7 +34,8 @@ export default function Hero() {
                 duration: 4,
                 repeat: Infinity,
               }}
-              src="/fleet/audia4.jpg"
+            
+              src="/fleet/audia4.webp"
               alt="Luxury Car"
               className="relative z-10 w-full rounded-[24px] sm:rounded-[40px] shadow-2xl"
             />

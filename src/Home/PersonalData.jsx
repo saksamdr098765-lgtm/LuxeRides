@@ -8,6 +8,6 @@ const  PersonalData={
     instagram:"https://www.instagram.com/luxe.dr1ves",
     twitter:"",
     linkdin:"",
-    logo:"/logo.png"
+    logo:"/logo.webp"
 }
 export default PersonalData

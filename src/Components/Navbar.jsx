@@ -34,6 +34,7 @@ export default function Navbar() {
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl  text-white">
            <img
       src={logo}
+      loading="lazy"
       alt="Logo"
       className="h-full w-full object-cover"
     />
