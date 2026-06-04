@@ -6,16 +6,17 @@ import {
   FaTimes,
   FaArrowRight,
 } from "react-icons/fa";
+import PersonalData from "../Home/PersonalData";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+ const {name,whatsapp,logo}=PersonalData
   const navLinks = [
+    "Home",
     "Fleet",
-    "Services",
-    "Locations",
-    "About",
     "Contact",
+    "About",
   ];
 
   return (
@@ -30,13 +31,17 @@ export default function Navbar() {
           
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-900 text-white">
-              <FaCarSide />
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl  text-white">
+           <img
+      src={logo}
+      alt="Logo"
+      className="h-full w-full object-cover"
+    />
             </div>
 
             <div>
               <h2 className="text-xl font-black tracking-tight text-zinc-900">
-                Luxe Rides
+                {name}
               </h2>
               <p className="text-xs text-zinc-500">
                 Premium Car Rentals
@@ -47,27 +52,31 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-8">
             {navLinks.map((item, index) => (
-              <li key={index}>
-                <a
-                  href="#"
-                  className="font-medium text-zinc-600 transition hover:text-zinc-900"
+              <li 
+              key={index}>
+
+                <Link
+                 to={`/${item}`}
+                  className="font-medium text-zinc-600 transition  hover:text-zinc-900"
                 >
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           {/* Right Side */}
           <div className="hidden lg:flex items-center gap-4">
-            <button className="font-medium text-zinc-700 hover:text-black">
-              Sign In
-            </button>
+         
 
-            <button className="group flex items-center gap-2 rounded-full bg-zinc-900 px-6 py-3 text-white transition hover:bg-black">
+            <a 
+                href={`https://wa.me/${whatsapp}`}
+  target="_blank"
+  rel="noopener noreferrer"
+                className="group flex items-center gap-2 rounded-full bg-zinc-900 px-6 py-3 text-white transition hover:bg-black">
               Book Now
               <FaArrowRight className="text-sm transition group-hover:translate-x-1" />
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,23 +102,26 @@ export default function Navbar() {
               
               <div className="flex flex-col gap-5">
                 {navLinks.map((item, index) => (
-                  <a
+                  <Link
                     key={index}
-                    href="#"
+                      to={`/${item}`}
                     className="border-b border-zinc-100 pb-3 font-medium text-zinc-700 hover:text-black"
                   >
                     {item}
-                  </a>
+                  </Link>
                 ))}
 
-                <button className="mt-4 rounded-full border border-zinc-300 py-3 font-medium text-zinc-700">
-                  Sign In
-                </button>
+              
 
-                <button className="flex items-center justify-center gap-2 rounded-full bg-zinc-900 py-3 text-white">
+                <a 
+                  href={`https://wa.me/${whatsapp}`}
+  target="_blank"
+  rel="noopener noreferrer"
+                
+                className="flex items-center justify-center gap-2 rounded-full bg-zinc-900 py-3 text-white">
                   Book Now
                   <FaArrowRight />
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

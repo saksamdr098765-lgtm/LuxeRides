@@ -4,28 +4,52 @@ import { FaStar, FaQuoteRight } from "react-icons/fa";
 const testimonials = [
   {
     id: 1,
-    name: "James Anderson",
-    role: "Business Executive",
-    image: "https://i.pravatar.cc/150?img=12",
+    name: "Rahul Sharma",
+    role: "Business Consultant",
+    image: "https://i.pravatar.cc/150?img=68",
     review:
-      "The experience was exceptional from start to finish. The vehicle arrived spotless, and the service felt truly first-class. Luxe Rides exceeded every expectation.",
+      "The experience was exceptional from start to finish. The Mercedes S-Class arrived in pristine condition, and the chauffeur was highly professional. LuxeDrives truly delivers a premium experience.",
   },
   {
     id: 2,
-    name: "Sophia Carter",
-    role: "Travel Influencer",
-    image: "https://i.pravatar.cc/150?img=32",
+    name: "Priya Mehta",
+    role: "Travel Content Creator",
+    image: "https://i.pravatar.cc/150?img=47",
     review:
-      "Luxury, comfort, and professionalism all in one. Booking was effortless, and driving the Porsche 911 made my trip unforgettable.",
+      "Booking was seamless and the Range Rover Sport was absolutely stunning. From comfort to service quality, everything exceeded my expectations.",
   },
   {
     id: 3,
-    name: "Michael Thompson",
+    name: "Arjun Kapoor",
     role: "Entrepreneur",
-    image: "https://i.pravatar.cc/150?img=15",
+    image: "https://i.pravatar.cc/150?img=13",
     review:
-      "I've used many rental services over the years, but Luxe Rides stands in a league of its own. Premium vehicles and impeccable support.",
+      "I've rented luxury vehicles across several cities, but LuxeDrives stands apart. Their fleet quality, punctuality, and customer support are truly outstanding.",
   },
+  // {
+  //   id: 4,
+  //   name: "Neha Verma",
+  //   role: "Wedding Planner",
+  //   image: "https://i.pravatar.cc/150?img=25",
+  //   review:
+  //     "We booked a luxury vehicle for a wedding event, and it became one of the highlights of the celebration. Elegant cars and flawless service.",
+  // },
+  // {
+  //   id: 5,
+  //   name: "Vikram Singh",
+  //   role: "Corporate Executive",
+  //   image: "https://i.pravatar.cc/150?img=59",
+  //   review:
+  //     "Professional, reliable, and luxurious. The BMW 7 Series was immaculate and made a lasting impression during an important business trip.",
+  // },
+  // {
+  //   id: 6,
+  //   name: "Ananya Gupta",
+  //   role: "Fashion Entrepreneur",
+  //   image: "https://i.pravatar.cc/150?img=44",
+  //   review:
+  //     "The entire process felt premium. From booking to vehicle delivery, every detail was handled perfectly. Highly recommended for anyone seeking luxury travel.",
+  // },
 ];
 
 export default function Testimonials() {

@@ -13,7 +13,7 @@ export default function Home() {
   return (
   <>
   <Hero></Hero>
-  <BookingSearch></BookingSearch>
+  {/* <BookingSearch></BookingSearch> */}
   <FeaturedFleet></FeaturedFleet>
   <HowItWorks></HowItWorks>
   <Testimonials></Testimonials>

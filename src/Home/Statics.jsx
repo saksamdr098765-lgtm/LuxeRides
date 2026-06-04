@@ -9,7 +9,7 @@ import {
 const stats = [
   {
     icon: <FaCarSide />,
-    value: "500+",
+    value: "50+",
     label: "Premium Vehicles",
   },
   {
@@ -19,7 +19,7 @@ const stats = [
   },
   {
     icon: <FaMapMarkerAlt />,
-    value: "120+",
+    value: "10+",
     label: "Locations Worldwide",
   },
   {
@@ -123,7 +123,7 @@ export default function Statistics() {
 
               <div>
                 <h4 className="text-4xl font-black text-amber-400">
-                  15+
+                  10+
                 </h4>
                 <p className="mt-2 text-zinc-400">
                   Years Experience

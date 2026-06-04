@@ -5,8 +5,10 @@ import {
   FaCarSide,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+  const navigate=useNavigate()
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-stone-50 to-white">
       {/* Background Blur */}
@@ -32,7 +34,7 @@ export default function Hero() {
                 duration: 4,
                 repeat: Infinity,
               }}
-              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600"
+              src="/fleet/audia4.jpg"
               alt="Luxury Car"
               className="relative z-10 w-full rounded-[24px] sm:rounded-[40px] shadow-2xl"
             />
@@ -53,7 +55,7 @@ export default function Hero() {
 
                 <div>
                   <p className="text-sm sm:text-base font-semibold text-zinc-900">
-                    Mercedes S-Class
+                  Audi A4
                   </p>
 
                   <span className="text-xs sm:text-sm text-zinc-500">
@@ -79,11 +81,11 @@ export default function Hero() {
 
                 <div>
                   <p className="text-sm sm:text-base font-semibold text-zinc-900">
-                    120+ Locations
+                    10+ Locations
                   </p>
 
                   <span className="text-xs sm:text-sm text-zinc-500">
-                    Worldwide Access
+                    Across India
                   </span>
                 </div>
               </div>
@@ -128,14 +130,14 @@ export default function Hero() {
 
             {/* Buttons */}
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <button className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-zinc-900 px-8 py-4 font-medium text-white transition hover:bg-black">
+              <button onClick={()=>{navigate('/fleet')}} className="group cursor-pointer  flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-zinc-900 px-8 py-4 font-medium text-white transition hover:bg-black">
                 Explore Fleet
 
                 <FaArrowRight className="transition group-hover:translate-x-1" />
               </button>
 
-              <button className="w-full sm:w-auto rounded-full border border-zinc-300 px-8 py-4 font-medium text-zinc-700 transition hover:bg-white">
-                Watch Showcase
+              <button onClick={()=>{navigate('/contact')}} className="w-full cursor-pointer sm:w-auto rounded-full border border-zinc-300 px-8 py-4 font-medium text-zinc-700 transition hover:bg-white">
+                Book now
               </button>
             </div>
 

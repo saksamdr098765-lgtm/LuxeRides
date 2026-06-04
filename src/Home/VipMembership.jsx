@@ -5,6 +5,7 @@ import {
   FaCheck,
   FaStar,
 } from "react-icons/fa";
+import PersonalData from "./PersonalData";
 
 export default function VIPMembership() {
   const perks = [
@@ -15,6 +16,7 @@ export default function VIPMembership() {
     "Airport pickup & drop-off benefits",
     "Early booking access for limited models",
   ];
+  const {whatsapp}=PersonalData
 
   return (
     <section className="overflow-x-hidden bg-stone-50 py-16 lg:py-24 px-5 lg:px-6">
@@ -64,7 +66,7 @@ export default function VIPMembership() {
               ))}
             </div>
 
-            <button className="group mt-8 flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-zinc-900 px-8 py-4 font-semibold text-white transition hover:bg-black">
+            <button onClick={()=>{window.location=`https://wa.me/${whatsapp}`}} className="group cursor-pointer mt-8 flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-zinc-900 px-8 py-4 font-semibold text-white transition hover:bg-black">
               Become a Member
               <FaArrowRight className="transition group-hover:translate-x-1" />
             </button>

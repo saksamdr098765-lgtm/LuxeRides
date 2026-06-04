@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import PersonalData from "./PersonalData";
 
 export default function CTA() {
+  const navigate=useNavigate()
+  const {whatsapp}=PersonalData
   return (
     <section className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
@@ -33,12 +37,12 @@ export default function CTA() {
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="group flex items-center gap-3 rounded-full bg-amber-500 px-8 py-4 font-semibold text-white transition hover:scale-105">
+            <button onClick={()=>{window.location=`https://wa.me/${whatsapp}`}} className="group cursor-pointer flex items-center gap-3 rounded-full bg-amber-500 px-8 py-4 font-semibold text-white transition hover:scale-105">
               Reserve Your Ride
               <FaArrowRight className="transition group-hover:translate-x-1" />
             </button>
 
-            <button className="rounded-full border border-zinc-700 px-8 py-4 font-semibold text-white transition hover:bg-white hover:text-black">
+            <button onClick={()=>{navigate('/contact')}} className="rounded-full cursor-pointer border border-zinc-700 px-8 py-4 font-semibold text-white transition hover:bg-white hover:text-black">
               Contact Concierge
             </button>
           </div>

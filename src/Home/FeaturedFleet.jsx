@@ -5,35 +5,36 @@ import {
   FaCogs,
   FaArrowRight,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import PersonalData from "./PersonalData";
 
 const cars = [
   {
     id: 1,
-    name: "Mercedes S-Class",
-    category: "Luxury Sedan",
-    price: "₹100000",
-    image:
-      "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1200",
+    name: "Thar 4x4 Soft Top Automatic",
+    category: "Off-Road SUV",
+    price: "₹4500",
+    image: "/fleet/thar.webp",
   },
   {
     id: 2,
-    name: "Range Rover Sport",
-    category: "Executive SUV",
-    price: "₹150000",
-    image:
-      "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200",
+    name: "Swift Manual",
+    category: "Hatchback",
+    price: "₹1800",
+    image: "/fleet/swift.jpg",
   },
   {
     id: 3,
-    name: "Porsche 911",
-    category: "Sports Car",
-    price: "₹200000",
-    image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200",
+    name: "Scorpio S11",
+    category: "SUV",
+    price: "₹3500",
+    image: "/fleet/scorpios11.avif",
   },
 ];
 
 export default function FeaturedFleet() {
+  const navigate=useNavigate()
+  const {whatsapp}=PersonalData
   return (
     <section className="bg-stone-50 py-24 px-6">
       <div className="mx-auto max-w-7xl">
@@ -63,65 +64,66 @@ export default function FeaturedFleet() {
       {/* Fleet Grid */}
 <div className="lg:grid lg:grid-cols-3 lg:gap-8">
   {/* Mobile Horizontal Scroll */}
-  <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory lg:hidden scrollbar-hide">
-    {cars.map((car, index) => (
-      <motion.div
-        key={car.id}
-        initial={{ opacity: 0, y: 70 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.15 }}
-        whileHover={{ y: -10 }}
-        className="group min-w-[85vw] snap-center overflow-hidden rounded-[32px] bg-white shadow-[0_15px_50px_rgba(0,0,0,0.05)]"
-      >
-        <div className="overflow-hidden">
-          <img
-            src={car.image}
-            alt={car.name}
-            className="h-72 w-full object-cover transition duration-700 group-hover:scale-110"
-          />
-        </div>
+<div className="flex gap-5 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scrollbar-hide lg:hidden">
+  {cars.map((car, index) => (
+    <motion.div
+      key={car.id}
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="relative min-w-[85%] snap-center overflow-hidden rounded-[30px]"
+    >
+      {/* Image */}
+      <img
+        src={car.image}
+        alt={car.name}
+        className="h-[500px] w-full object-cover"
+      />
 
-        <div className="p-7">
-          <div className="flex items-center justify-between">
-            <span className="rounded-full bg-zinc-100 px-4 py-2 text-sm text-zinc-600">
-              {car.category}
-            </span>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
-            <span className="font-bold text-amber-600">
-              {car.price}/day
-            </span>
-          </div>
+      {/* Category */}
+      <div className="absolute left-5 top-5">
+        <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-white backdrop-blur-md">
+          {car.category}
+        </span>
+      </div>
 
-          <h3 className="mt-5 text-2xl font-bold text-zinc-900">
-            {car.name}
-          </h3>
+      {/* Content */}
+      <div className="absolute bottom-0 left-0 right-0 p-6">
+        <p className="mb-2 text-sm tracking-[0.25em] text-amber-400 uppercase">
+          Premium Collection
+        </p>
 
-          <div className="mt-6 flex items-center justify-between border-t border-zinc-100 pt-6">
-            <div className="flex items-center gap-2 text-zinc-500">
-              <FaUsers />
-              <span>5 Seats</span>
-            </div>
+        <h3 className="text-3xl font-black text-white">
+          {car.name}
+        </h3>
 
-            <div className="flex items-center gap-2 text-zinc-500">
-              <FaCogs />
-              <span>Auto</span>
-            </div>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+          Experience unmatched comfort, performance and style with our
+          premium vehicle fleet.
+        </p>
 
-            <div className="flex items-center gap-2 text-zinc-500">
-              <FaGasPump />
-              <span>Petrol</span>
-            </div>
-          </div>
+        <button
+          onClick={() => {
+            const message = `Hi LuxeDrives, I would like to book the ${car.name}. Please share availability and pricing details.`;
 
-          <button className="mt-8 flex w-full items-center justify-center gap-3 rounded-2xl bg-zinc-900 py-4 font-semibold text-white transition hover:bg-black">
-            Reserve Vehicle
-            <FaArrowRight />
-          </button>
-        </div>
-      </motion.div>
-    ))}
-  </div>
+            window.open(
+              `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`,
+              "_blank"
+            );
+          }}
+          className="mt-6 flex w-full items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/10 py-4 font-semibold text-white backdrop-blur-md transition hover:bg-white hover:text-black"
+        >
+          Reserve Vehicle
+          <FaArrowRight />
+        </button>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
   {/* Desktop Grid */}
   <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8 lg:col-span-3">
@@ -149,15 +151,15 @@ export default function FeaturedFleet() {
               {car.category}
             </span>
 
-            <span className="font-bold text-amber-600">
+            {/* <span className="font-bold text-amber-600">
               {car.price}/day
-            </span>
+            </span> */}
           </div>
 
           <h3 className="mt-5 text-2xl font-bold text-zinc-900">
             {car.name}
           </h3>
-
+{/* 
           <div className="mt-6 flex items-center justify-between border-t border-zinc-100 pt-6">
             <div className="flex items-center gap-2 text-zinc-500">
               <FaUsers />
@@ -173,9 +175,16 @@ export default function FeaturedFleet() {
               <FaGasPump />
               <span>Petrol</span>
             </div>
-          </div>
+          </div> */}
 
-          <button className="mt-8 flex w-full items-center justify-center gap-3 rounded-2xl bg-zinc-900 py-4 font-semibold text-white transition hover:bg-black">
+          <button onClick={() => {
+  const message = `Hi LuxeDrives, I would like to book the ${car.name}. Please share availability and pricing details.`;
+
+  window.open(
+    `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+}} className="mt-8 flex w-full cursor-pointer items-center justify-center gap-3 rounded-2xl bg-zinc-900 py-4 font-semibold text-white transition hover:bg-black">
             Reserve Vehicle
             <FaArrowRight />
           </button>
@@ -192,7 +201,7 @@ export default function FeaturedFleet() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <button className="rounded-full border border-zinc-300 px-8 py-4 font-semibold text-zinc-800 transition hover:bg-white">
+          <button onClick={()=>{navigate('/fleet')}} className="rounded-full border border-zinc-300 px-8 py-4 font-semibold text-zinc-800 transition hover:bg-white">
             View Entire Fleet
           </button>
         </motion.div>
