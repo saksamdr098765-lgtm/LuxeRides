@@ -12,7 +12,72 @@ import {
 import PersonalData from "./Home/PersonalData";
 
 export default function Contact() {
-const {whatsappNumber:whatsapp,phone,email,address}=PersonalData
+  const cars = [
+  {
+    id: 1,
+    name: "Thar 4x4 Soft Top Automatic",
+    category: "Off-Road SUV",
+    price: "₹4500",
+    image: "/fleet/thar.webp",
+  },
+  {
+    id: 2,
+    name: "Swift Manual",
+    category: "Hatchback",
+    price: "₹1800",
+    image: "/fleet/swift.jpg",
+  },
+  {
+    id: 3,
+    name: "Scorpio S11",
+    category: "SUV",
+    price: "₹3500",
+    image: "/fleet/scorpios11.avif",
+  },
+  {
+    id: 4,
+    name: "Scorpio N",
+    category: "Premium SUV",
+    price: "₹4000",
+    image: "/fleet/scropion.jpeg",
+  },
+  {
+    id: 5,
+    name: "Thar Roxx",
+    category: "Off-Road SUV",
+    price: "₹5000",
+    image: "/fleet/tharrox.webp",
+  },
+  {
+    id: 6,
+    name: "Audi A4",
+    category: "Luxury Sedan",
+    price: "₹7000",
+    image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=1200",
+  },
+  {
+    id: 7,
+    name: "Fronx Automatic",
+    category: "Compact SUV",
+    price: "₹2500",
+    image: "/fleet/fronx.avif",
+  },
+  {
+    id: 8,
+    name: "Thar 4x2 Manual",
+    category: "Off-Road SUV",
+    price: "₹4000",
+    image: "/fleet/thar42.jpg",
+  },
+  {
+    id: 9,
+    name: "Fortuner",
+    category: "Premium SUV",
+    price: "₹6500",
+    image: "/fleet/fortuner.jpg",
+  },
+];
+const {whatsapp,phone,email,address}=PersonalData
 
   const [formData, setFormData] = useState({
     name: "",
@@ -66,7 +131,7 @@ ${formData.message || "None"}
 Sent from LuxeDrives Website
 `;
 
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent(
       message
     )}`;
 
@@ -102,188 +167,188 @@ Sent from LuxeDrives Website
       </section>
 
       {/* BOOKING FORM */}
-      <section className="py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
-          {/* FORM */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[32px] bg-white p-8 shadow-xl lg:col-span-2"
+     <section className="py-12 md:py-24">
+  <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-3">
+    {/* FORM */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="rounded-[24px] bg-white p-5 sm:p-6 md:p-8 shadow-xl lg:col-span-2"
+    >
+      <h2 className="text-2xl md:text-3xl font-black text-zinc-900">
+        Booking Details
+      </h2>
+
+      <form onSubmit={handleSubmit} className="mt-6 md:mt-8 space-y-5">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <input
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            type="text"
+            placeholder="Full Name"
+            required
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+          />
+
+          <input
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            type="email"
+            placeholder="Email Address"
+            required
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <input
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            type="tel"
+            placeholder="Phone Number"
+            required
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+          />
+
+          <select
+            name="vehicle"
+            value={formData.vehicle}
+            onChange={handleChange}
+            required
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
           >
-            <h2 className="text-3xl font-black text-zinc-900">
-              Booking Details
-            </h2>
+           <option value="">Select Vehicle</option>
 
-            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-              <div className="grid gap-6 md:grid-cols-2">
-                <input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Full Name"
-                  required
-                  className="rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-                />
+  {cars.map((car) => (
+    <option key={car.id} value={car.name}>
+      {car.name}
+    </option>
+  ))}
+          </select>
+        </div>
 
-                <input
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  type="email"
-                  placeholder="Email Address"
-                  required
-                  className="rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-                />
-              </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <input
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            type="date"
+            required
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+          />
 
-              <div className="grid gap-6 md:grid-cols-2">
-                <input
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  type="tel"
-                  placeholder="Phone Number"
-                  required
-                  className="rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-                />
+          <input
+            name="time"
+            value={formData.time}
+            onChange={handleChange}
+            type="time"
+            required
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+          />
+        </div>
 
-                <select
-                  name="vehicle"
-                  value={formData.vehicle}
-                  onChange={handleChange}
-                  required
-                  className="rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-                >
-                  <option value="">Select Vehicle</option>
-                  <option>Mercedes S-Class</option>
-                  <option>BMW 7 Series</option>
-                  <option>Range Rover Sport</option>
-                  <option>Porsche 911</option>
-                  <option>Rolls Royce Ghost</option>
-                  <option>Lamborghini Huracan</option>
-                </select>
-              </div>
+        <input
+          name="pickup"
+          value={formData.pickup}
+          onChange={handleChange}
+          type="text"
+          placeholder="Pickup Location"
+          required
+          className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+        />
 
-              <div className="grid gap-6 md:grid-cols-2">
-                <input
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  type="date"
-                  required
-                  className="rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-                />
+        <input
+          name="dropoff"
+          value={formData.dropoff}
+          onChange={handleChange}
+          type="text"
+          placeholder="Drop-off Location"
+          required
+          className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+        />
 
-                <input
-                  name="time"
-                  value={formData.time}
-                  onChange={handleChange}
-                  type="time"
-                  required
-                  className="rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-                />
-              </div>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows="5"
+          placeholder="Special Requests..."
+          className="w-full rounded-2xl border border-zinc-200 px-4 py-3 md:px-5 md:py-4 outline-none transition focus:border-amber-500"
+        />
 
-              <input
-                name="pickup"
-                value={formData.pickup}
-                onChange={handleChange}
-                type="text"
-                placeholder="Pickup Location"
-                required
-                className="w-full rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-              />
+        <button
+          type="submit"
+          className="w-full cursor-pointer rounded-2xl bg-zinc-900 py-3 md:py-4 text-sm md:text-base font-semibold text-white transition hover:bg-black"
+        >
+          Submit Booking Request
+        </button>
+      </form>
+    </motion.div>
 
-              <input
-                name="dropoff"
-                value={formData.dropoff}
-                onChange={handleChange}
-                type="text"
-                placeholder="Drop-off Location"
-                required
-                className="w-full rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-              />
+    {/* SIDEBAR */}
+    <div className="space-y-6">
+      <div className="rounded-[24px] bg-zinc-900 p-5 sm:p-6 md:p-8 text-white">
+        <h3 className="text-xl md:text-2xl font-bold">
+          Contact Information
+        </h3>
 
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows="5"
-                placeholder="Special Requests..."
-                className="w-full rounded-2xl border border-zinc-200 px-5 py-4 outline-none focus:border-amber-500"
-              />
+        <div className="mt-6 space-y-5">
+          <div className="flex items-start gap-4">
+            <FaPhoneAlt className="mt-1 shrink-0 text-amber-400" />
+            <span>{phone}</span>
+          </div>
 
-              <button
-                type="submit"
-                className="w-full cursor-pointer rounded-2xl bg-zinc-900 py-4 font-semibold text-white transition hover:bg-black"
-              >
-                Submit Booking Request
-              </button>
-            </form>
-          </motion.div>
+          <div className="flex items-start gap-4">
+            <FaEnvelope className="mt-1 shrink-0 text-amber-400" />
+            <span className="break-all">{email}</span>
+          </div>
 
-          {/* SIDEBAR */}
-          <div className="space-y-6">
-            <div className="rounded-[32px] bg-zinc-900 p-8 text-white">
-              <h3 className="text-2xl font-bold">
-                Contact Information
-              </h3>
+          <div className="flex items-start gap-4">
+            <FaMapMarkerAlt className="mt-1 shrink-0 text-amber-400" />
+            <span className="break-words">{address}</span>
+          </div>
 
-              <div className="mt-8 space-y-6">
-                <div className="flex gap-4">
-                  <FaPhoneAlt className="mt-1 text-amber-400" />
-                  <span>{phone}</span>
-                </div>
-
-                <div className="flex gap-4">
-                  <FaEnvelope className="mt-1 text-amber-400" />
-                  <span>{email}</span>
-                </div>
-
-                <div className="flex gap-4">
-                  <FaMapMarkerAlt className="mt-1 text-amber-400" />
-                  <span>{address}</span>
-                </div>
-
-                <div className="flex gap-4">
-                  <FaClock className="mt-1 text-amber-400" />
-                  <span>24/7 Support</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-[32px] bg-white p-8 shadow-lg">
-              <h3 className="text-2xl font-bold">
-                Why Book With Us?
-              </h3>
-
-              <div className="mt-6 space-y-4">
-                <div className="flex gap-3">
-                  <FaCrown className="text-amber-500" />
-                  Premium luxury fleet
-                </div>
-
-                <div className="flex gap-3">
-                  <FaShieldAlt className="text-amber-500" />
-                  Fully insured vehicles
-                </div>
-
-                <div className="flex gap-3">
-                  <FaCar className="text-amber-500" />
-                  Professional chauffeurs
-                </div>
-
-                <div className="flex gap-3">
-                  <FaClock className="text-amber-500" />
-                  24/7 booking assistance
-                </div>
-              </div>
-            </div>
+          <div className="flex items-start gap-4">
+            <FaClock className="mt-1 shrink-0 text-amber-400" />
+            <span>24/7 Support</span>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="rounded-[24px] bg-white p-5 sm:p-6 md:p-8 shadow-lg">
+        <h3 className="text-xl md:text-2xl font-bold">
+          Why Book With Us?
+        </h3>
+
+        <div className="mt-6 space-y-4">
+          <div className="flex items-start gap-3">
+            <FaCrown className="mt-1 shrink-0 text-amber-500" />
+            <span>Premium luxury fleet</span>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <FaShieldAlt className="mt-1 shrink-0 text-amber-500" />
+            <span>Fully insured vehicles</span>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <FaCar className="mt-1 shrink-0 text-amber-500" />
+            <span>Professional chauffeurs</span>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <FaClock className="mt-1 shrink-0 text-amber-500" />
+            <span>24/7 booking assistance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 }
