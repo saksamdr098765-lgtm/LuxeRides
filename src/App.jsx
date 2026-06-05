@@ -9,7 +9,7 @@ import { Routes,Route, Navigate } from 'react-router-dom'
 import AppLoader from './Components/AppLoader'
 const Fleet = lazy(()=>import('./Fleet'))
 const About = lazy(()=>import('./About'))
-const Contact = lazy(()=>import('./conatct'))
+const Contact = lazy(()=>import('./Contact'))
 
 
 function App() {
