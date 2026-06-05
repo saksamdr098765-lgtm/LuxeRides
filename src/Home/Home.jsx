@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from './Hero'
-import BookingSearch from './BookingSearch'
+
 import FeaturedFleet from './FeaturedFleet'
 import Testimonials from './Testimonials'
 import CTA from './Cta'
@@ -13,7 +13,7 @@ export default function Home() {
   return (
   <>
   <Hero></Hero>
-  {/* <BookingSearch></BookingSearch> */}
+
   <FeaturedFleet></FeaturedFleet>
   <HowItWorks></HowItWorks>
   <Testimonials></Testimonials>

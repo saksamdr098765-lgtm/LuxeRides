@@ -144,69 +144,66 @@ export default function Fleet() {
 
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {cars.map((car, index) => (
-              <motion.div
-                key={car.id}
-                initial={{ opacity: 0, y: 70 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group overflow-hidden rounded-[32px] bg-white shadow-[0_15px_50px_rgba(0,0,0,0.05)]"
-              >
-                <div className="overflow-hidden">
-                  <img
-                   loading="lazy"
-                    src={car.image}
-                    alt={car.name}
-                    className="h-72 w-full object-cover transition duration-700 group-hover:scale-110"
-                  />
-                </div>
+         <motion.div
+  key={car.id}
+  initial={{ opacity: 0, y: 70 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: index * 0.1 }}
+  whileHover={{ y: -10 }}
+  className={`group relative overflow-hidden rounded-[32px]
+    ${index === 0 ? "xl:col-span-2" : ""}
+  `}
+>
+  {/* Image */}
+  <img
+    loading="lazy"
+    src={car.image}
+    alt={car.name}
+    className="h-[450px] md:h-[500px] xl:h-[550px] w-full object-cover transition duration-700 group-hover:scale-110"
+  />
 
-                <div className="p-7">
-                  <div className="flex items-center justify-between">
-                    <span className="rounded-full bg-zinc-100 px-4 py-2 text-sm text-zinc-600">
-                      {car.category}
-                    </span>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-                    {/* <span className="font-bold text-amber-600">
-                      {car.price}/day
-                    </span> */}
-                  </div>
+  {/* Category */}
+  <div className="absolute left-5 top-5">
+    <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-white backdrop-blur-md">
+      {car.category}
+    </span>
+  </div>
 
-                  <h3 className="mt-5 text-2xl font-bold text-zinc-900">
-                    {car.name}
-                  </h3>
+  {/* Content */}
+  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+    <p className="mb-2 text-xs uppercase tracking-[0.3em] text-amber-400">
+      Premium Collection
+    </p>
 
-                  {/* <div className="mt-6 flex items-center justify-between border-t border-zinc-100 pt-6">
-                    <div className="flex items-center gap-2 text-zinc-500">
-                      <FaUsers />
-                      <span>5 Seats</span>
-                    </div>
+    <h3 className="text-2xl md:text-3xl xl:text-4xl font-black text-white">
+      {car.name}
+    </h3>
 
-                    <div className="flex items-center gap-2 text-zinc-500">
-                      <FaCogs />
-                      <span>Auto</span>
-                    </div>
+    <p className="mt-3 max-w-md text-sm md:text-base text-zinc-300">
+      Experience unmatched comfort, performance and style with our premium
+      vehicle fleet.
+    </p>
 
-                    <div className="flex items-center gap-2 text-zinc-500">
-                      <FaGasPump />
-                      <span>Petrol</span>
-                    </div>
-                  </div> */}
+    <button
+      onClick={() => {
+        const message = `Hi LuxeDrives, I would like to book the ${car.name}. Please share availability and pricing details.`;
 
-                  <button onClick={() => {
-  const message = `Hi LuxeDrives, I would like to book the ${car.name}. Please share availability and pricing details.`;
-
-  window.open(
-    `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
-}} className="mt-8 flex w-full items-center cursor-pointer justify-center gap-3 rounded-2xl bg-zinc-900 py-4 font-semibold text-white transition hover:bg-black">
-                    Reserve Vehicle
-                    <FaArrowRight />
-                  </button>
-                </div>
-              </motion.div>
+        window.open(
+          `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`,
+          "_blank"
+        );
+      }}
+      className="mt-6 flex w-full items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/10 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-black"
+    >
+      Reserve Vehicle
+      <FaArrowRight />
+    </button>
+  </div>
+</motion.div>
             ))}
           </div>
         </div>

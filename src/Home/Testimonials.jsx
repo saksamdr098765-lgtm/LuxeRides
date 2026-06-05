@@ -26,30 +26,7 @@ const testimonials = [
     review:
       "I've rented luxury vehicles across several cities, but LuxeDrives stands apart. Their fleet quality, punctuality, and customer support are truly outstanding.",
   },
-  // {
-  //   id: 4,
-  //   name: "Neha Verma",
-  //   role: "Wedding Planner",
-  //   image: "https://i.pravatar.cc/150?img=25",
-  //   review:
-  //     "We booked a luxury vehicle for a wedding event, and it became one of the highlights of the celebration. Elegant cars and flawless service.",
-  // },
-  // {
-  //   id: 5,
-  //   name: "Vikram Singh",
-  //   role: "Corporate Executive",
-  //   image: "https://i.pravatar.cc/150?img=59",
-  //   review:
-  //     "Professional, reliable, and luxurious. The BMW 7 Series was immaculate and made a lasting impression during an important business trip.",
-  // },
-  // {
-  //   id: 6,
-  //   name: "Ananya Gupta",
-  //   role: "Fashion Entrepreneur",
-  //   image: "https://i.pravatar.cc/150?img=44",
-  //   review:
-  //     "The entire process felt premium. From booking to vehicle delivery, every detail was handled perfectly. Highly recommended for anyone seeking luxury travel.",
-  // },
+ 
 ];
 
 export default function Testimonials() {
