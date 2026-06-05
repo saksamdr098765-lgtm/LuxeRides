@@ -8,6 +8,7 @@ import {
   FaCrown,
   FaShieldAlt,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import PersonalData from "./Home/PersonalData";
 
 const cars = [
@@ -78,7 +79,20 @@ const cars = [
 
 export default function Fleet() {
   const {whatsapp}=PersonalData
+    const siteUrl = import.meta.env.VITE_SITE_URL;
   return (
+    <>
+    <Helmet>
+  <title>Our Fleet | Luxury & Premium Cars | LuxeRides</title>
+  <meta
+    name="description"
+    content="Browse our fleet of luxury and premium rental cars. Find the perfect vehicle for business trips, weddings, and personal travel."
+  />
+  <link
+  rel="canonical"
+  href={`${siteUrl}/fleet`}
+/>
+</Helmet>
     <div className="bg-stone-50">
       {/* HERO */}
       <section className="relative overflow-hidden bg-zinc-950 py-32 text-white">
@@ -227,5 +241,6 @@ export default function Fleet() {
         </div>
       </section> 
     </div>
+    </>
   );
 }

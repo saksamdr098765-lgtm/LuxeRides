@@ -8,9 +8,11 @@ import {
   FaStar,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function About() {
     const navigate=useNavigate()
+      const siteUrl = import.meta.env.VITE_SITE_URL;
   const stats = [
     { value: "50+", label: "Luxury Vehicles" },
     { value: "10K+", label: "Happy Clients" },
@@ -42,6 +44,18 @@ export default function About() {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>About LuxeRides | Trusted Car Rental Service</title>
+  <meta
+    name="description"
+    content="Learn about LuxeRides, our mission, commitment to quality service, and premium car rental experience."
+  />
+  <link
+  rel="canonical"
+  href={`${siteUrl}/about`}
+/>
+</Helmet>
     <div className="bg-stone-50">
 
       {/* HERO */}
@@ -238,5 +252,7 @@ export default function About() {
       </section>
 
     </div>
+    
+    </>
   );
 }

@@ -9,9 +9,11 @@ import {
   FaCrown,
   FaCar,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import PersonalData from "./Home/PersonalData";
 
 export default function Contact() {
+    const siteUrl = import.meta.env.VITE_SITE_URL;
   const cars = [
   {
     id: 1,
@@ -139,6 +141,19 @@ Sent from LuxeDrives Website
   };
 
   return (
+    <>
+    
+    <Helmet>
+  <title>Contact LuxeRides | Book Your Car Today</title>
+  <meta
+    name="description"
+    content="Get in touch with LuxeRides for bookings, inquiries, and support. We're here to help you find the perfect rental car."
+  />
+  <link
+  rel="canonical"
+  href={`${siteUrl}/contact`}
+/>
+</Helmet>
     <div className="bg-stone-50">
       {/* HERO */}
       <section className="relative overflow-hidden bg-zinc-950 py-28">
@@ -351,5 +366,6 @@ Sent from LuxeDrives Website
   </div>
 </section>
     </div>
+    </>
   );
 }
