@@ -9,7 +9,7 @@ import VIPMembership from './VipMembership'
 import Statistics from './Statics'
 import HowItWorks from './HowItWorks'
 import { Helmet } from 'react-helmet-async'
-
+import PersonalData from './PersonalData'
 export default function Home() {
   const siteUrl = import.meta.env.VITE_SITE_URL;
 
@@ -33,6 +33,35 @@ export default function Home() {
   rel="canonical"
   href={`${siteUrl}`}
 />
+
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AutoRental",
+      name: PersonalData.name,
+      url: siteUrl,
+      logo: `${siteUrl}${PersonalData.logo}`,
+      email: PersonalData.email,
+      telephone: `+91${PersonalData.phone}`,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: PersonalData.address,
+        addressCountry: "IN",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: `+91${PersonalData.phone}`,
+        contactType: "customer service",
+        areaServed: "IN",
+      },
+      sameAs: [
+        PersonalData.instagram,
+        PersonalData.facebook,
+        PersonalData.twitter,
+        PersonalData.linkdin,
+      ].filter(Boolean),
+    })}
+  </script>
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LuxeRides | Premium Car Rental Services" />
